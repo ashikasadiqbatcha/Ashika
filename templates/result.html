@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head><title>Your Plan</title>
+<style>body{font-family:Arial; background:#f4f7f9; padding:20px;} .box{background:white; padding:20px; border-radius:12px; max-width:800px; margin:auto; box-shadow:0 5px 15px rgba(0,0,0,0.1);} pre{white-space:pre-wrap; background:#f9f9f9; padding:15px; border-radius:8px;} .tip{background:#e3f2fd; padding:15px; border-left:5px solid #2196F3; margin:20px 0;} button{padding:10px 15px; background:#0072ff; color:white; border:none; border-radius:6px;}</style>
+</head>
+<body>
+<div class="box">
+    <h2>Hello {{username}}! Your 7-Day Plan 🏋️</h2>
+    <p><b>User ID:</b> {{user_id}} | <b>Goal:</b> {{goal}} | <b>Intensity:</b> {{intensity}}</p>
+    {% if message %}<p style="color:green; font-weight:bold;">{{message}}</p>{% endif %}
+    <h3>Workout Plan</h3>
+    <pre>{{workout_plan}}</pre>
+    <div class="tip"><h3>Nutrition Tip 🥗</h3><p>{{nutrition_tip}}</p></div>
+    <h3>Want to update plan? Feedback kudu:</h3>
+    <form action="/submit-feedback" method="post">
+        <input type="hidden" name="user_id" value="{{user_id}}">
+        <input type="text" name="feedback" placeholder="e.g., more cardio, include yoga" style="width:70%; padding:10px;" required>
+        <button type="submit">Update Plan</button>
+    </form>
+    <br><a href="/">← Back to Home</a> | <a href="/view-all-users">View All Users</a>
+</div>
+</body>
+</html>
